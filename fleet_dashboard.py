@@ -661,7 +661,8 @@ elif page == "🔧 Maintenance & CPKM":
     with col1:
         st.metric("Overall Maintenance CPKM", f"₹{overall_cpkm:.2f}")
     with col2:
-        st.metric("Total Maintenance Cost", f"₹{total_maint_cost/100000:.2f}L")
+        total_cost_lakhs = total_maint_cost / 100000
+st.metric("Total Maintenance Cost", f"₹{total_cost_lakhs:.2f}L")
     with col3:
         due_7days = len(df_vehicles[(df_vehicles['Next Service (days)'] >= 0) & (df_vehicles['Next Service (days)'] <= 7)])
         st.metric("Due in 7 Days", due_7days)
